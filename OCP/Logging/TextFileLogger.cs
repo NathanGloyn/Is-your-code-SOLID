@@ -8,17 +8,23 @@ namespace BoxInformation.Logging
 {
     public class TextFileLogger:ILogger
     {
-        private StreamWriter logWriter;
+        private string logPath;
 
         public TextFileLogger(string logPath)
         {
-            logWriter = new StreamWriter(logPath);
-            logWriter.AutoFlush = true;
+            this.logPath = logPath;
         }
 
         public void Log(string message)
         {
-            logWriter.WriteLine(message);
+            using (StreamWriter logWriter = new StreamWriter(logPath))
+            {
+                logWriter.AutoFlush = true;
+                logWriter.WriteLine(message);
+            }
+
         }
+
+
     }
 }

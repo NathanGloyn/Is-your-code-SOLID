@@ -114,8 +114,8 @@ namespace BoxInformation
             {
                 container.RegisterType<IDataAccess, SqlDataAccess>(
                     new InjectionConstructor(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString))
-                    .RegisterType<ILogger, DebugLogger>()
-                    .RegisterType<SearchPresenter, SearchPresenter>("Search")
+                    .RegisterType<ILogger, TextFileLogger>(new InjectionConstructor("test.log"))
+                    .RegisterType<SearchPresenter, SearchPresenter>()
                     .RegisterType<ISearchView, Search>()
                     .RegisterType<IBoxEntry, BoxEntry>()
                     .RegisterType<RecordPresenter, RecordPresenter>()
