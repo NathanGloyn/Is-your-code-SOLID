@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Web;
-using System.Web.Configuration;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Web.UI;
 using Microsoft.Practices.Unity;
 using BoxInformation.Presenter;
@@ -114,13 +109,21 @@ namespace BoxInformation
             {
                 container.RegisterType<IDataAccess, SqlDataAccess>(
                     new InjectionConstructor(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString))
-                    .RegisterType<ILogger, TextFileLogger>(new InjectionConstructor("test.log"))
-                    .RegisterType<SearchPresenter, SearchPresenter>()
-                    .RegisterType<ISearchView, Search>()
-                    .RegisterType<IBoxEntry, BoxEntry>()
-                    .RegisterType<RecordPresenter, RecordPresenter>()
-                    .RegisterType<IRecordView, ViewRecord>();
+                    .RegisterType<ILogger, DebugLogger>();
+                #region Alt.Log
+                //.RegisterType<ILogger, TextFileLogger>(new InjectionConstructor(ConfigurationManager.AppSettings["LogPath"])); 
+                #endregion
 
+            }
+
+            if (containerName == "session")
+            {
+                container.RegisterType<SearchPresenter, SearchPresenter>()
+                     .RegisterType<ISearchView, Search>()
+                     .RegisterType<IBoxEntry, BoxEntry>()
+                     .RegisterType<RecordPresenter, RecordPresenter>()
+                     .RegisterType<IRecordView, ViewRecord>();
+                
             }
 
         }

@@ -85,7 +85,9 @@
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Interfaces\IRecordView.cs" />
     <Compile Include="Interfaces\ISearchView.cs" />
-    <Compile Include="Logging\TextFileLogger.cs" />
+    <Compile Include="Logging\TextFileLogger.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Model\BoxEntry.cs" />
     <Compile Include="Model\IBoxEntry.cs" />
     <Compile Include="Presenter\RecordPresenter.cs" />
