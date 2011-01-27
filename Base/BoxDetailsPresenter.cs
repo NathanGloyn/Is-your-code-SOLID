@@ -79,14 +79,6 @@ namespace BoxInformation.Presenter
             return true;
         }
 
-        /// <summary>
-        /// GetEntry
-        /// Uses DAL helper class to execute u_GetRecordByID_s with the RecordID in order to populate
-        /// the view from the returned Dataset.  Checks each Row has a value before assigning it.
-        /// Calls the ConvertStringToKVP function to get the list of locations and box numbers.
-        /// </summary>
-        /// <param name="RecordID">string</param>
-        /// <returns>bool</returns>
         public bool GetEntry(string RecordID)
         {
 
@@ -152,11 +144,6 @@ namespace BoxInformation.Presenter
 
         }
 
-        /// <summary>
-        /// GetEntry
-        /// Uses DAL helper class to execute u_DeleteRecord_d.  Deletes the currently viewed record.
-        /// </summary>
-        /// <returns>bool</returns>
         public bool DeleteRecord()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
@@ -176,13 +163,6 @@ namespace BoxInformation.Presenter
             }
         }
 
-        /// <summary>
-        /// UpdateRecord
-        /// Uses DAL helper class to execute u_UpdateRecord_u using the current record in the view
-        /// Checks each view property has a value before assigning it.
-        /// Calls the ConvertKCPToString function to get the string of locations and numbers from the Key Value Pair.
-        /// </summary>
-        /// <returns>bool</returns>
         public bool UpdateRecord()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
@@ -233,14 +213,6 @@ namespace BoxInformation.Presenter
             }
         }
 
-        /// <summary>
-        /// AddRecord
-        /// Uses DAL helper class to execute u_AddRecord_i using the current record in the view
-        /// Takes strProjectName as a parameter and doesn't need to, this should be removed.
-        /// Calls the ConvertKCPToString function to get the string of locations and numbers from the Key Value Pair.
-        /// </summary>
-        /// <returns>bool</returns>
-        /// <param name="strClientName">string</param>
         public bool AddRecord(string strClientName)
         {
 
@@ -289,11 +261,7 @@ namespace BoxInformation.Presenter
             }
         }
 
-        /// <summary>
-        /// Uploads the file.
-        /// </summary>
-        /// <param name="fleFile">The fle file.</param>
-        /// <returns></returns>
+        
         private string UploadFile(HttpPostedFile fleFile)
         {
             byte[] bufFileBuffer = new byte[fleFile.ContentLength];
@@ -309,11 +277,6 @@ namespace BoxInformation.Presenter
             return Path.GetFileName(fleFile.FileName);
         }
 
-        /// <summary>
-        /// Converts the KVP to string.
-        /// </summary>
-        /// <param name="keyValueList">The key value list.</param>
-        /// <returns></returns>
         private string ConvertKVPToString(List<KeyValuePair<string, int>> keyValueList)
         {
             if (keyValueList != null)
@@ -336,11 +299,6 @@ namespace BoxInformation.Presenter
             }
         }
 
-        /// <summary>
-        /// Converts the string to KVP.
-        /// </summary>
-        /// <param name="strEntryString">The STR entry string.</param>
-        /// <returns></returns>
         private List<KeyValuePair<string, int>> ConvertStringToKVP(string strEntryString)
         {
             List<KeyValuePair<string, int>> lstResults = new List<KeyValuePair<string,int>>();
@@ -375,9 +333,6 @@ namespace BoxInformation.Presenter
             return lstResults;
         }
 
-        /// <summary>
-        /// Deletes the file1.
-        /// </summary>
         public void DeleteFile1()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
@@ -395,9 +350,6 @@ namespace BoxInformation.Presenter
             }
         }
 
-        /// <summary>
-        /// Deletes the file2.
-        /// </summary>
         public void DeleteFile2()
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
@@ -413,8 +365,6 @@ namespace BoxInformation.Presenter
             catch (Exception e)
             {
             }
-
         }
-
     }
 }

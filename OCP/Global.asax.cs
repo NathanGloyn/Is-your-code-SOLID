@@ -28,13 +28,13 @@ namespace BoxInformation
 
         protected void Application_End(object sender, EventArgs e)
         {
-            IUnityContainer applicationContainer = this.ApplicationContainer;
+            IUnityContainer applicationContainer = ApplicationContainer;
 
             if (applicationContainer != null)
             {
                 applicationContainer.Dispose();
 
-                this.ApplicationContainer = null;
+                ApplicationContainer = null;
             }
         }
 
@@ -55,7 +55,7 @@ namespace BoxInformation
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            IUnityContainer applicationContainer = this.ApplicationContainer;
+            IUnityContainer applicationContainer = ApplicationContainer;
 
             if (applicationContainer != null)
             {
@@ -63,18 +63,18 @@ namespace BoxInformation
                     = applicationContainer.CreateChildContainer();
                 ConfigureContainer(sessionContainer, "session");
 
-                this.SessionContainer = sessionContainer;
+                SessionContainer = sessionContainer;
             }
         }
 
         protected void Session_End(object sender, EventArgs e)
         {
-            IUnityContainer sessionContainer = this.SessionContainer;
+            IUnityContainer sessionContainer = SessionContainer;
             if (sessionContainer != null)
             {
                 sessionContainer.Dispose();
 
-                this.SessionContainer = null;
+                SessionContainer = null;
             }
         }
 
@@ -82,11 +82,11 @@ namespace BoxInformation
         {
             get
             {
-                return (IUnityContainer)this.Application[AppContainerKey];
+                return (IUnityContainer)Application[AppContainerKey];
             }
             set
             {
-                this.Application[AppContainerKey] = value;
+                Application[AppContainerKey] = value;
             }
         }
 
@@ -94,11 +94,11 @@ namespace BoxInformation
         {
             get
             {
-                return (IUnityContainer)this.Session[SessionContainerKey];
+                return (IUnityContainer)Session[SessionContainerKey];
             }
             set
             {
-                this.Session[SessionContainerKey] = value;
+                Session[SessionContainerKey] = value;
             }
         }
 

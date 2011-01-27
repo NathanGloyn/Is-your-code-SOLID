@@ -7,7 +7,7 @@ namespace BoxInformation.Presenter
 {
     public class RecordPresenter
     {
-        private ILogger logger;
+        private readonly ILogger logger;
 
         public IRecordView RecordView 
         {

@@ -321,7 +321,6 @@ namespace BoxInformation
 
         public void myBoxesTextBox_TextChanged(object sender, EventArgs e)
         {
-            //Change the boxData list for the right box
             Button btnSender = (Button)sender;
             string txtID = btnSender.ID.Replace("btn", "txt");
             TextBox senderBox = (TextBox)FindControl(txtID);
@@ -364,10 +363,8 @@ namespace BoxInformation
 
         public void AddRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
-            // Remove Client Name from this method call - DM 24 July 09
             Presenter.AddRecord();
             txtBoxLocation.Text = "";
             txtNumberOfBoxes.Text = "";
@@ -376,7 +373,6 @@ namespace BoxInformation
 
         protected void UpdateRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
             Presenter.UpdateRecord();
@@ -424,22 +420,18 @@ namespace BoxInformation
 
         public void btnDeleteFile1_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             Presenter.DeleteManifest();
             lblCurrentFileName.Text = "";
             litFileName.Text = "";
             litDocumentFilename.Text = "";
-
         }
 
         public void btnDeleteFile2_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             Presenter.DeleteAgreement();
             lblCurrentFileName2.Text = "";
             litFileName2.Text = "";
             litDocumentFilename2.Text = "";
-
         }
 
     }

@@ -18,7 +18,6 @@ namespace BoxInformation
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            //test for null to save re-initializing every time
             if (presenter == null) presenter = new Presenter.RecordPresenter(this);
 
             ftbComments.EnableSsl = HttpContext.Current.Request.IsSecureConnection;
@@ -363,10 +362,8 @@ namespace BoxInformation
 
         public void AddRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
-            // Remove Client Name from this method call - DM 24 July 09
             presenter.AddRecord();
             txtBoxLocation.Text = "";
             txtNumberOfBoxes.Text = "";
@@ -375,7 +372,6 @@ namespace BoxInformation
 
         protected void UpdateRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
             presenter.UpdateRecord();
@@ -423,7 +419,6 @@ namespace BoxInformation
 
         public void btnDeleteFile1_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             presenter.DeleteManifest();
             lblCurrentFileName.Text = "";
             litFileName.Text = "";
@@ -433,12 +428,10 @@ namespace BoxInformation
 
         public void btnDeleteFile2_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             presenter.DeleteAgreement();
             lblCurrentFileName2.Text = "";
             litFileName2.Text = "";
             litDocumentFilename2.Text = "";
-
         }
 
     }

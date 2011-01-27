@@ -19,7 +19,6 @@ namespace BoxInformation
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            //test for null to save re-initializing every time
             if (presenter == null) presenter = new Presenter.BoxDetailsPresenter(this);
             
             ftbComments.EnableSsl = HttpContext.Current.Request.IsSecureConnection;
@@ -110,10 +109,6 @@ namespace BoxInformation
 
 
         }
-
-
-        #region IRecordView Members
-
 
         public bool SecureStorage
         {
@@ -211,10 +206,6 @@ namespace BoxInformation
           
         }
 
-        /// <summary>
-        /// Gets or sets the comments.
-        /// </summary>
-        /// <value>The comments.</value>
         public string comments
         {
             get { return ftbComments.Text; }
@@ -225,19 +216,11 @@ namespace BoxInformation
             }
         }
 
-        /// <summary>
-        /// Gets the file.
-        /// </summary>
-        /// <value>The file.</value>
         public HttpPostedFile file
         {
             get { return fluDocument.PostedFile; }
         }
 
-        /// <summary>
-        /// Gets or sets the name of the file.
-        /// </summary>
-        /// <value>The name of the file.</value>
         public string fileName
         {
             get { return lblCurrentFileName.Text; }
@@ -248,19 +231,11 @@ namespace BoxInformation
             }
         }
 
-        /// <summary>
-        /// Gets the file2.
-        /// </summary>
-        /// <value>The file2.</value>
         public HttpPostedFile file2
         {
             get { return fluDocument2.PostedFile; }
         }
 
-        /// <summary>
-        /// Gets or sets the file name2.
-        /// </summary>
-        /// <value>The file name2.</value>
         public string fileName2
         {
             get { return lblCurrentFileName2.Text; }
@@ -272,10 +247,6 @@ namespace BoxInformation
             }
         }
 
-        /// <summary>
-        /// Gets or sets the box details.
-        /// </summary>
-        /// <value>The box details.</value>
         public List<KeyValuePair<string, int>> boxDetails
         {
 
@@ -292,13 +263,6 @@ namespace BoxInformation
 
         }
 
-        /// <summary>
-        /// DrawBoxDetails
-        /// In order to create a dynamic list of locations and boxes we need to draw them based on the
-        /// KeyValuePair list in Session (as BoxInformation).  This is called numerous times through the
-        /// application.
-        /// </summary>
-        /// <returns>void</returns>
         private void DrawBoxDetails()
         {
             if (boxData == null)
@@ -366,20 +330,8 @@ namespace BoxInformation
 
         }
 
-
-        /// <summary>
-        /// myBoxesTextBox_TextChanged
-        /// Event to handle changes in the dynamically created text boxes made during DrawBoxDetails()
-        /// Cycles through the Text Boxes and finds which KVP we have edited.  Sets the new Key Value
-        /// Pair to the new value.  If the value is set to zero it is removed.  The session is then
-        /// updated with the new values
-        /// </summary>
-        /// <param name="sender">object</param>
-        /// <param name="e">EventArgs</param>
-        /// <returns>void</returns>
         public void myBoxesTextBox_TextChanged(object sender, EventArgs e)
         {
-            //Change the boxData list for the right box
             Button btnSender = (Button)sender;
             string txtID = btnSender.ID.Replace("btn", "txt");
             TextBox senderBox = (TextBox)FindControl(txtID);
@@ -420,37 +372,18 @@ namespace BoxInformation
 
         }
 
-        /// <summary>
-        /// AddRecord_Click
-        /// Event to handle changes the Add Record button.  Checks for Mandatory fields then calls the Presenter
-        /// to add a record.  Currently passes a parameter of Client name, but this shouldn't be required.
-        /// </summary>
-        /// <param name="sender">object</param>
-        /// <param name="e">EventArgs</param>
-        /// <returns>void</returns>
         public void AddRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
-            // Remove Client Name from this method call - DM 24 July 09
             presenter.AddRecord();
             txtBoxLocation.Text = "";
             txtNumberOfBoxes.Text = "";
 
         }
 
-        /// <summary>
-        /// UpdateRecord_Click
-        /// Event to handle changes the Update Record button.  Checks for Mandatory fields then calls the Presenter
-        /// to Update Record.
-        /// </summary>
-        /// <param name="sender">object</param>
-        /// <param name="e">EventArgs</param>
-        /// <returns>void</returns>
         protected void UpdateRecord_Click(object sender, EventArgs e)
         {
-            //Call To Method To ensure Madatory Fields have been completed. HMS 14/07/09
             MandatoryFields();
 
             presenter.UpdateRecord();
@@ -459,18 +392,10 @@ namespace BoxInformation
             presenter.GetRecordById(Request.QueryString["ID"]);
         }
 
-        /// <summary>
-        /// DeleteRecord_Click
-        /// Event to handle changes the Delete Record button.Calls the Presenter to delete the current record.
-        /// </summary>
-        /// <param name="sender">object</param>
-        /// <param name="e">EventArgs</param>
-        /// <returns>void</returns>
         protected void DeleteRecord_Click(object sender, EventArgs e)
         {
             presenter.DeleteRecord();
         }
-        #endregion
 
         protected void AddBoxes_Click(object sender, EventArgs e)
         {
@@ -506,22 +431,18 @@ namespace BoxInformation
 
         public void btnDeleteFile1_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             presenter.DeleteManifest();
             lblCurrentFileName.Text = "";
             litFileName.Text = "";
             litDocumentFilename.Text = "";
-
         }
 
         public void btnDeleteFile2_Click(object sender, EventArgs e)
         {
-            // Remove File1 from Record
             presenter.DeleteAgreement();
             lblCurrentFileName2.Text = "";
             litFileName2.Text = "";
             litDocumentFilename2.Text = "";
-
         }
 
     }

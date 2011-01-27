@@ -13,22 +13,12 @@ namespace BoxInformation
         BoxDetailsPresenter presenter;
         DataSet _searchResults;
 
-        /// <summary>
-        /// Handles the Load event of the Page control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["BoxInformation"] = null;
             if (presenter == null) presenter = new Presenter.BoxDetailsPresenter(this);
         }
 
-        /// <summary>
-        /// Handles the Click event of the Search control.
-        /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         public void Search_Click(object sender, EventArgs e)
         {
             presenter.GetSearchResults();
@@ -36,20 +26,12 @@ namespace BoxInformation
             dtlSearchResults.DataBind();
         }
 
-        /// <summary>
-        /// Gets or sets the search results.
-        /// </summary>
-        /// <value>The search results.</value>
         public DataSet searchResults
         {
             get { return _searchResults; }
             set { _searchResults = value; }
         }
 
-        /// <summary>
-        /// Gets the Client number.
-        /// </summary>
-        /// <value>The Client number.</value>
         public string ClientNumber
         {
             get
@@ -66,10 +48,6 @@ namespace BoxInformation
             set { throw new NotImplementedException(); }
         }
 
-        /// <summary>
-        /// Gets the name of the Client.
-        /// </summary>
-        /// <value>The name of the Client.</value>
         public string ClientName
         {
             get
@@ -86,10 +64,6 @@ namespace BoxInformation
             set { throw new NotImplementedException(); }
         }
 
-        /// <summary>
-        /// Gets the Client principal.
-        /// </summary>
-        /// <value>The Client principal.</value>
         public string ClientPrincipal
         {
             get
@@ -107,10 +81,6 @@ namespace BoxInformation
         }
 
 
-        /// <summary>
-        /// Gets the location.
-        /// </summary>
-        /// <value>The location.</value>
         public string location
         {
             get
@@ -127,10 +97,6 @@ namespace BoxInformation
 
         }
 
-        /// <summary>
-        /// Gets the completion date.
-        /// </summary>
-        /// <value>The completion date.</value>
         public DateTime? reviewDate
         {
             get
@@ -162,10 +128,6 @@ namespace BoxInformation
 
         DateTime? IView.reviewDate { get; set; }
 
-        /// <summary>
-        /// Gets the comments.
-        /// </summary>
-        /// <value>The comments.</value>
         public string comments
         {
             get {
