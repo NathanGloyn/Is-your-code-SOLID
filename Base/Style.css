@@ -1,7 +1,7 @@
 H1
 {
 	font-family: Helvetica;
-	font-size: medium;
+	font-size: large;
 }
 H2
 {
@@ -49,7 +49,6 @@ fieldset
     float: left;  
     clear: left;  
     width: 100%;    
-    margin: 1.5em 0 0 0;  
     padding: 0;
     border: 0px solid #BFBAB0;  
 }
@@ -60,8 +59,7 @@ legend {
     font-weight: bold;
 }
 
-fieldset ol {  
-    padding: 1em 1em 0 1em;  
+fieldset ol {   
     list-style: none;
 }
 
@@ -69,7 +67,7 @@ fieldset li {
     float: left;  
     clear: left;  
     width: 100%;  
-    padding-bottom: 1em;
+    padding-bottom: 5px;
 }
 
 fieldset.submit {  

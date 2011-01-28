@@ -83,46 +83,15 @@ namespace BoxInformation
 
         public string location
         {
-            get
-            {
-                if (ddlLocation.SelectedValue != "0")
-                {
-                    return ddlLocation.SelectedValue;
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            get { throw new NotImplementedException(); }
 
+            set { throw new NotImplementedException(); }
         }
 
         public DateTime? reviewDate
         {
-            get
-            {
-                if (txtReviewDate.Text.Length > 0)
-                {
-                    DateTime? _date = new DateTime?();
-                    DateTime _date2;
+            get { throw new NotImplementedException(); }
 
-                    if (DateTime.TryParse(txtReviewDate.Text, out _date2))
-                    {
-                        _date = new DateTime?(_date2);
-                    }
-                    else
-                    {
-                        return null;
-                    }
-                    return _date;
-                }
-                else
-                {
-                    return null;
-                }
-                    
-
-            }
             set { throw new NotImplementedException(); }
         }
 
@@ -130,16 +99,8 @@ namespace BoxInformation
 
         public string comments
         {
-            get {
-                if (txtComments.Text.Length > 0)
-                {
-                    return txtComments.Text;
-                }
-                else
-                {
-                    return null;
-                }
-            }
+            get { throw new NotImplementedException(); }
+
             set { throw new NotImplementedException(); }
         }
 

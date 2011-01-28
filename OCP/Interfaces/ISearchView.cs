@@ -11,9 +11,5 @@ namespace BoxInformation.Interfaces
         string ClientNumber { get; }
         string ClientName { get; }
         string ClientPrincipal { get; }
-        string location { get; }
-        DateTime? reviewDate { get; }
-        string comments { get; }
-
     }
 }

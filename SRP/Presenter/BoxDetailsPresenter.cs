@@ -41,19 +41,6 @@ namespace BoxInformation.Presenter
                 sql += view.ClientPrincipal;
             }
             sql += "%'";
-            sql += " AND (FileLocation LIKE '%";
-            if (!string.IsNullOrEmpty(view.location))
-            {
-                sql += view.location;
-            }
-            sql += "%' OR";
-            sql += " FileLocation2 LIKE '%";
-            if(! string.IsNullOrEmpty(view.location))
-            {
-                sql += view.location;
-            }
-            sql += "%'";
-            sql += ")";
 
             view.searchResults = dataAccess.FillDataSet(sql,CommandType.Text);
 

@@ -23,14 +23,12 @@ namespace BoxInformation.Presenter
 
         public void GetSearchResults()
         {
-            const string sqlFormat = "SELECT * FROM BoxDetails WHERE ClientName LIKE '%{0}%' AND ClientNumber LIKE '%{1}%' AND ClientLeader LIKE '%{2}%' AND (FileLocation LIKE '%{3}%' OR FileLocation2 LIKE '%{4}%')";
+            const string sqlFormat = "SELECT * FROM BoxDetails WHERE ClientName LIKE '%{0}%' AND ClientNumber LIKE '%{1}%' AND ClientLeader LIKE '%{2}%'";
 
             string sql = string.Format(sqlFormat,
                                        GetFieldValue(view.ClientName),
                                        GetFieldValue(view.ClientNumber),
-                                       GetFieldValue(view.ClientPrincipal),
-                                       GetFieldValue(view.location),
-                                       GetFieldValue(view.location));
+                                       GetFieldValue(view.ClientPrincipal));
 
             view.searchResults = dataAccess.FillDataSet(sql, CommandType.Text);
 

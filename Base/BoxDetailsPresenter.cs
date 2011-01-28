@@ -54,19 +54,7 @@ namespace BoxInformation.Presenter
                 sql += _view.ClientPrincipal;
             }
             sql += "%'";
-            sql += " AND (FileLocation LIKE '%";
-            if (!string.IsNullOrEmpty(_view.location))
-            {
-                sql += _view.location;
-            }
-            sql += "%' OR";
-            sql += " FileLocation2 LIKE '%";
-            if(! string.IsNullOrEmpty(_view.location))
-            {
-                sql += _view.location;
-            }
-            sql += "%'";
-            sql += ")";
+            
 
             command.CommandText = sql;
 

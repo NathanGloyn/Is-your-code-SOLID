@@ -306,6 +306,7 @@ namespace BoxInformation
 
                     myBoxesTextBox.ID = "txt" + currentKVP.Key.ToString() + "Boxes";
                     myBoxesTextBox.Text = currentKVP.Value.ToString();
+                    myBoxesTextBox.CssClass = "stdEntry";
                     myBoxesTextBox.EnableViewState = true;
                     myBoxesTextBox.AutoPostBack = false;
 
