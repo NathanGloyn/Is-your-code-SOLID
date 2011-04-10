@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="css\Style.css" />
     <Content Include="Global.asax" />
+    <Content Include="lib\Microsoft.Practices.Unity.dll" />
     <Content Include="ViewRecord.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Web.config">
