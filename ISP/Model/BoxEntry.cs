@@ -24,7 +24,7 @@ namespace BoxInformation.Model
 
         public void Get(string boxId)
         {
-            DataSet entry = dataAccess.FillDataSet("u_GetRecordByID_s", CommandType.StoredProcedure, new SqlParameter("@ID", boxId));
+            DataSet entry = dataAccess.FillDataSet("GetRecordByID", CommandType.StoredProcedure, new SqlParameter("@ID", boxId));
 
             if (entry.Tables.Count < 1 || entry.Tables.Count > 1)
             {
@@ -42,7 +42,7 @@ namespace BoxInformation.Model
 
         public void Delete()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteRecord_d", new SqlParameter("@ID", view.Id));
+            dataAccess.ExecuteNonQuery("DeleteRecord", new SqlParameter("@ID", view.Id));
         }
 
         public void Update()
@@ -72,7 +72,7 @@ namespace BoxInformation.Model
                 parameters[7].Value = Path.GetFileName(view.file2.FileName);
             }
 
-            dataAccess.ExecuteNonQuery("u_UpdateRecord_u", parameters);
+            dataAccess.ExecuteNonQuery("UpdateRecord", parameters);
         }
 
         public void Add()
@@ -101,18 +101,18 @@ namespace BoxInformation.Model
                 parameters[6].Value = Path.GetFileName(view.file2.FileName);
             }
 
-            dataAccess.ExecuteNonQuery("u_AddRecord_i", parameters);
+            dataAccess.ExecuteNonQuery("AddRecord", parameters);
 
         }
 
         public void DeleteManifest()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteFile1_u", new SqlParameter("@ID", view.Id));
+            dataAccess.ExecuteNonQuery("DeleteFile1", new SqlParameter("@ID", view.Id));
         }
 
         public void DeleteAgreement()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteFile2_u", new SqlParameter("@ID", view.Id));
+            dataAccess.ExecuteNonQuery("DeleteFile2", new SqlParameter("@ID", view.Id));
         }
 
         public void PopulateView(DataRow entry)

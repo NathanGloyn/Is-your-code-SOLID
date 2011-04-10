@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using BoxInformation.Interfaces;
-using Microsoft.Practices.Unity;
 
 namespace BoxInformation.Model
 {
@@ -22,7 +21,7 @@ namespace BoxInformation.Model
 
         public void Get(string boxId)
         {
-            DataSet entry = dataAccess.FillDataSet("u_GetRecordByID_s", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", boxId));
+            DataSet entry = dataAccess.FillDataSet("GetRecordByID", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", boxId));
 
             if (entry.Tables.Count < 1 || entry.Tables.Count > 1)
             {
@@ -40,32 +39,32 @@ namespace BoxInformation.Model
 
         public void Delete()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteRecord_d", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
+            dataAccess.ExecuteNonQuery("DeleteRecord", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
         }
 
         public void Update()
         {
             IDbDataParameter[] parameters = CreateParameters(true);
 
-            dataAccess.ExecuteNonQuery("u_UpdateRecord_u", CommandType.StoredProcedure, parameters);
+            dataAccess.ExecuteNonQuery("UpdateRecord", CommandType.StoredProcedure, parameters);
         }
 
         public void Add()
         {
             IDbDataParameter[] parameters = CreateParameters(false);
 
-            dataAccess.ExecuteNonQuery("u_AddRecord_i", CommandType.StoredProcedure, parameters);
+            dataAccess.ExecuteNonQuery("AddRecord", CommandType.StoredProcedure, parameters);
 
         }
 
         public void DeleteManifest()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteFile1_u", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
+            dataAccess.ExecuteNonQuery("DeleteFile1", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
         }
 
         public void DeleteAgreement()
         {
-            dataAccess.ExecuteNonQuery("u_DeleteFile2_u", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
+            dataAccess.ExecuteNonQuery("DeleteFile2", CommandType.StoredProcedure, dataAccess.CreateParameter("@ID", View.Id));
         }
 
         public void PopulateView(DataRow entry)

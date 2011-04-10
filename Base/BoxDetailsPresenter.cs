@@ -72,7 +72,7 @@ namespace BoxInformation.Presenter
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_GetRecordByID_s", connection);
+            SqlCommand command = new SqlCommand("GetRecordByID", connection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add(new SqlParameter("@ID", RecordID));
 
@@ -136,7 +136,7 @@ namespace BoxInformation.Presenter
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_DeleteRecord_d", connection);
+            SqlCommand command = new SqlCommand("DeleteRecord", connection);
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add(new SqlParameter("@ID", _view.Id));
@@ -155,7 +155,7 @@ namespace BoxInformation.Presenter
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_UpdateRecord_u", connection);
+            SqlCommand command = new SqlCommand("UpdateRecord", connection);
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add(new SqlParameter("@ID", _view.Id));
@@ -206,7 +206,7 @@ namespace BoxInformation.Presenter
 
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_AddRecord_i", connection);
+            SqlCommand command = new SqlCommand("AddRecord", connection);
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add(new SqlParameter("@ClientName", _view.ClientName));
@@ -325,7 +325,7 @@ namespace BoxInformation.Presenter
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_DeleteFile1_u", connection);
+            SqlCommand command = new SqlCommand("DeleteFile1", connection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add(new SqlParameter("@ID", _view.Id));
 
@@ -342,7 +342,7 @@ namespace BoxInformation.Presenter
         {
             SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString);
             connection.Open();
-            SqlCommand command = new SqlCommand("u_DeleteFile2_u", connection);
+            SqlCommand command = new SqlCommand("DeleteFile2", connection);
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add(new SqlParameter("@ID", _view.Id));
 
