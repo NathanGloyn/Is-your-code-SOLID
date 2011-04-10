@@ -1,7 +1,6 @@
 ﻿using System.Data;
-using BoxInformation.Interfaces;
 
-namespace BoxInformation.Model
+namespace BoxInformation.Interfaces
 {
     public interface IBoxEntry
     {

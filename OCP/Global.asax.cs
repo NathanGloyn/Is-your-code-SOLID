@@ -1,28 +1,46 @@
 ﻿using System;
-using System.Configuration;
 using System.Web;
 using System.Web.UI;
 using Microsoft.Practices.Unity;
-using BoxInformation.Presenter;
-using BoxInformation.Interfaces;
-using BoxInformation.Model;
-using BoxInformation.Logging;
-
+using BoxInformation.UnityConfiguration;
 
 namespace BoxInformation
 {
     public class Global : System.Web.HttpApplication
     {
         private const string AppContainerKey = "application container";
+
         private const string SessionContainerKey = "session container";
+
+        private IUnityContainer ApplicationContainer
+        {
+            get
+            {
+                return (IUnityContainer)Application[AppContainerKey];
+            }
+            set
+            {
+                Application[AppContainerKey] = value;
+            }
+        }
+
+        private IUnityContainer SessionContainer
+        {
+            get
+            {
+                return (IUnityContainer)Session[SessionContainerKey];
+            }
+            set
+            {
+                Session[SessionContainerKey] = value;
+            }
+        }
 
         protected void Application_Start(object sender, EventArgs e)
         {
             IUnityContainer applicationContainer = new UnityContainer();
-
-            ConfigureContainer(applicationContainer, "application");
+            ConfigureContainer.Application(applicationContainer);
                 
-
             ApplicationContainer = applicationContainer;
         }
 
@@ -61,7 +79,7 @@ namespace BoxInformation
             {
                 IUnityContainer sessionContainer
                     = applicationContainer.CreateChildContainer();
-                ConfigureContainer(sessionContainer, "session");
+                ConfigureContainer.Session(sessionContainer);
 
                 SessionContainer = sessionContainer;
             }
@@ -75,57 +93,9 @@ namespace BoxInformation
                 sessionContainer.Dispose();
 
                 SessionContainer = null;
+
             }
         }
 
-        private IUnityContainer ApplicationContainer
-        {
-            get
-            {
-                return (IUnityContainer)Application[AppContainerKey];
-            }
-            set
-            {
-                Application[AppContainerKey] = value;
-            }
-        }
-
-        private IUnityContainer SessionContainer
-        {
-            get
-            {
-                return (IUnityContainer)Session[SessionContainerKey];
-            }
-            set
-            {
-                Session[SessionContainerKey] = value;
-            }
-        }
-
-        private static void ConfigureContainer(
-            IUnityContainer container,string containerName)
-        {
-            if (containerName == "application")
-            {
-                container.RegisterType<IDataAccess, SqlDataAccess>(
-                    new InjectionConstructor(ConfigurationManager.ConnectionStrings["DbConnection"].ConnectionString))
-                    .RegisterType<ILogger, DebugLogger>();
-                #region Alt.Log
-                //.RegisterType<ILogger, TextFileLogger>(new InjectionConstructor(ConfigurationManager.AppSettings["LogPath"])); 
-                #endregion
-
-            }
-
-            if (containerName == "session")
-            {
-                container.RegisterType<SearchPresenter, SearchPresenter>()
-                     .RegisterType<ISearchView, Search>()
-                     .RegisterType<IBoxEntry, BoxEntry>()
-                     .RegisterType<RecordPresenter, RecordPresenter>()
-                     .RegisterType<IRecordView, ViewRecord>();
-                
-            }
-
-        }
     }
 }

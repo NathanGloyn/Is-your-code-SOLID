@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.BoxInformation_DIP", "DIP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.BoxInformation_OCP", "OCP\4.BoxInformation_OCP.csproj", "{197E4E30-F9BA-4473-B864-66825FD51053}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.BoxInformation_LSP", "LSP\5.BoxInformation_LSP.csproj", "{710103C7-B567-4BB9-9EFD-F869FFD115CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{197E4E30-F9BA-4473-B864-66825FD51053}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{197E4E30-F9BA-4473-B864-66825FD51053}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{197E4E30-F9BA-4473-B864-66825FD51053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{710103C7-B567-4BB9-9EFD-F869FFD115CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710103C7-B567-4BB9-9EFD-F869FFD115CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710103C7-B567-4BB9-9EFD-F869FFD115CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710103C7-B567-4BB9-9EFD-F869FFD115CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

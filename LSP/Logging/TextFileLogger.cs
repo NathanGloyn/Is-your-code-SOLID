@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.IO;
+﻿using System.IO;
 
 namespace BoxInformation.Logging
 {
@@ -22,9 +18,6 @@ namespace BoxInformation.Logging
                 logWriter.AutoFlush = true;
                 logWriter.WriteLine(message);
             }
-
         }
-
-
     }
 }

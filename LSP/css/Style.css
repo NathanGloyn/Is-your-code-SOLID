@@ -1,0 +1,107 @@
+H1
+{
+	font-family: Helvetica;
+	font-size: large;
+}
+H2
+{
+	font-family: Helvetica;
+	font-size: small;
+	color: Lime;
+}
+BODY
+{
+	font-family: Helvetica;
+	font-size: medium;
+	background-color: White;
+}
+TABLE
+{
+	font-family: Helvetica;
+	font-size: medium;
+}
+INPUT
+{
+	font-family: Helvetica;
+	font-size: medium;
+}
+SELECT
+{
+	font-family: Helvetica;
+	font-size: medium;
+}
+
+a:active
+{
+	font-family:Helvetica;
+	color: #0b407b;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #FF6600;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+fieldset 
+{
+    float: left;  
+    clear: left;  
+    width: 100%;    
+    padding: 0;
+    border: 0px solid #BFBAB0;  
+}
+
+legend {  
+    margin-left: 1em;  
+    color: #000000;  
+    font-weight: bold;
+}
+
+fieldset ol {   
+    list-style: none;
+}
+
+fieldset li {  
+    float: left;  
+    clear: left;  
+    width: 100%;  
+    padding-bottom: 5px;
+}
+
+fieldset.submit {  
+    border-style: none;
+    float: none;  
+    width: auto;  
+    border: 0 none #FFF;  
+    padding-left: 12em; 
+}
+
+label 
+{
+    font-weight:bold;
+    float: left;  
+    width: 10em;  
+    margin-right: 1em;  
+    text-align: right; 
+}
+
+fieldset ol li span 
+{
+    font-weight:bold;
+    float: left;  
+    width: 10em;  
+    margin-right: 1em;  
+    text-align: right; 
+}
+
+Mand
+{
+    color:Red;
+}
+
+fieldset input[type=text]
+{
+    width:300px;
+}

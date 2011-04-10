@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using BoxInformation.Interfaces;
 
 namespace BoxInformation.Logging
 {
@@ -9,6 +8,5 @@ namespace BoxInformation.Logging
         {
             Debug.WriteLine(message);
         }
-
     }
 }

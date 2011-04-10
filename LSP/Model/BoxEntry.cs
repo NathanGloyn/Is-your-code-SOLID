@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Text;
+using BoxInformation.DataAccess;
 using BoxInformation.Interfaces;
 
 namespace BoxInformation.Model

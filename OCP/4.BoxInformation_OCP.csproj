@@ -25,6 +25,7 @@
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,8 +52,12 @@
     <Reference Include="FreeTextBox">
       <HintPath>lib\FreeTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.Unity, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,6 +74,8 @@
   <ItemGroup>
     <Content Include="css\Style.css" />
     <Content Include="Global.asax" />
+    <Content Include="lib\Microsoft.Practices.Unity.dll" />
+    <Content Include="lib\Microsoft.Practices.Unity.xml" />
     <Content Include="ViewRecord.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Web.config">
@@ -81,17 +88,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PresenterDecorators\RecordPresenterLogger.cs" />
+    <Compile Include="PresenterDecorators\SearchPresenterDecorator.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
-    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IRecordView.cs" />
     <Compile Include="Interfaces\ISearchView.cs" />
-    <Compile Include="Logging\TextFileLogger.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Model\BoxEntry.cs" />
-    <Compile Include="Model\IBoxEntry.cs" />
+    <Compile Include="Interfaces\IBoxEntry.cs" />
+    <Compile Include="Interfaces\ISearchPresenter.cs" />
+    <Compile Include="Interfaces\IRecordPresenter.cs" />
     <Compile Include="Presenter\RecordPresenter.cs" />
     <Compile Include="Presenter\SearchPresenter.cs" />
+    <Compile Include="UnityConfiguration\ConfigureContainer.cs" />
     <Compile Include="ViewRecord.aspx.cs">
       <DependentUpon>ViewRecord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,7 +123,6 @@
   <ItemGroup>
     <Component Include="lib\FreeTextBox.dll" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
