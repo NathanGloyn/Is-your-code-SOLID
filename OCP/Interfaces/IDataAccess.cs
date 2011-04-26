@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace BoxInformation.DataAccess
+namespace BoxInformation.Interfaces
 {
     public interface IDataAccess
     {

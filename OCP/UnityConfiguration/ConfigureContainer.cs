@@ -1,8 +1,10 @@
 ﻿using System.Configuration;
+using BoxInformation.DataAccess;
 using BoxInformation.Interfaces;
 using BoxInformation.Logging;
 using BoxInformation.Model;
 using BoxInformation.Presenter;
+using BoxInformation.PresenterDecorators;
 using Microsoft.Practices.Unity;
 
 namespace BoxInformation.UnityConfiguration

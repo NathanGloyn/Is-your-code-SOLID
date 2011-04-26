@@ -1,6 +1,4 @@
-using BoxInformation.Interfaces;
-
-namespace BoxInformation.Presenter
+namespace BoxInformation.Interfaces
 {
     public interface ISearchPresenter
     {

@@ -82,8 +82,8 @@
     <Compile Include="ViewRecord.aspx.designer.cs">
       <DependentUpon>ViewRecord.aspx</DependentUpon>
     </Compile>
-    <Compile Include="View Interfaces\IRecordView.cs" />
-    <Compile Include="View Interfaces\ISearchView.cs" />
+    <Compile Include="Interfaces\IRecordView.cs" />
+    <Compile Include="Interfaces\ISearchView.cs" />
     <Compile Include="Presenter\RecordPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search.aspx.cs">

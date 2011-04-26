@@ -1,4 +1,4 @@
-﻿namespace BoxInformation.Logging
+﻿namespace BoxInformation.Interfaces
 {
     public interface ILogger
     {

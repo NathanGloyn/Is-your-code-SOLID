@@ -1,7 +1,8 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
+using BoxInformation.Interfaces;
 
-namespace BoxInformation
+namespace BoxInformation.DataAccess
 {
     public class SqlDataAccess : IDataAccess
     {

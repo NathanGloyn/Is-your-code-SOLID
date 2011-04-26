@@ -1,6 +1,5 @@
 using System;
 using BoxInformation.Interfaces;
-using BoxInformation.Model;
 
 namespace BoxInformation.Presenter
 {

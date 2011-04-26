@@ -1,8 +1,7 @@
 ﻿using System;
 using BoxInformation.Interfaces;
-using BoxInformation.Logging;
 
-namespace BoxInformation
+namespace BoxInformation.PresenterDecorators
 {
     public class RecordPresenterLogger:IRecordPresenter
     {

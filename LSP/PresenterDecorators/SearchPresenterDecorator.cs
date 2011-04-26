@@ -1,7 +1,5 @@
 ﻿using System;
 using BoxInformation.Interfaces;
-using BoxInformation.Logging;
-using BoxInformation.Presenter;
 
 namespace BoxInformation.PresenterDecorators
 {

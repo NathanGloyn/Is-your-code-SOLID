@@ -83,7 +83,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="Interfaces\IDataAccess.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -91,13 +91,13 @@
     <Compile Include="PresenterDecorators\RecordPresenterLogger.cs" />
     <Compile Include="PresenterDecorators\SearchPresenterDecorator.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
-    <Compile Include="View Interfaces\ILogger.cs" />
-    <Compile Include="View Interfaces\IRecordView.cs" />
-    <Compile Include="View Interfaces\ISearchView.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Interfaces\IRecordView.cs" />
+    <Compile Include="Interfaces\ISearchView.cs" />
     <Compile Include="Model\BoxEntry.cs" />
-    <Compile Include="View Interfaces\IBoxEntry.cs" />
-    <Compile Include="View Interfaces\ISearchPresenter.cs" />
-    <Compile Include="View Interfaces\IRecordPresenter.cs" />
+    <Compile Include="Interfaces\IBoxEntry.cs" />
+    <Compile Include="Interfaces\ISearchPresenter.cs" />
+    <Compile Include="Interfaces\IRecordPresenter.cs" />
     <Compile Include="Presenter\RecordPresenter.cs" />
     <Compile Include="Presenter\SearchPresenter.cs" />
     <Compile Include="UnityConfiguration\ConfigureContainer.cs" />

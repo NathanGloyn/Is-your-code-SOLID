@@ -79,15 +79,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="Interfaces\IDataAccess.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="View Interfaces\IRecordView.cs" />
-    <Compile Include="View Interfaces\ISearchView.cs" />
+    <Compile Include="Interfaces\IRecordView.cs" />
+    <Compile Include="Interfaces\ISearchView.cs" />
     <Compile Include="Model\BoxEntry.cs" />
-    <Compile Include="View Interfaces\IBoxEntry.cs" />
+    <Compile Include="Interfaces\IBoxEntry.cs" />
     <Compile Include="Presenter\RecordPresenter.cs" />
     <Compile Include="Presenter\SearchPresenter.cs" />
     <Compile Include="ViewRecord.aspx.cs">
