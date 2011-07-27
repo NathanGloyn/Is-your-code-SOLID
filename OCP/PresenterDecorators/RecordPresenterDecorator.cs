@@ -3,12 +3,12 @@ using BoxInformation.Interfaces;
 
 namespace BoxInformation.PresenterDecorators
 {
-    public class RecordPresenterLogger:IRecordPresenter
+    public class RecordPresenterDecorator:IRecordPresenter
     {
         private readonly ILogger logger;
         private readonly IRecordPresenter presenter;
 
-        public RecordPresenterLogger(IRecordPresenter presenter, ILogger logger) 
+        public RecordPresenterDecorator(IRecordPresenter presenter, ILogger logger) 
         {
             if (presenter == null) throw new Exception("presenter cannot be null");
             if (logger == null) throw new Exception("logger cannot be null");

@@ -28,7 +28,7 @@ namespace BoxInformation.UnityConfiguration
                      .RegisterType<ISearchView, Search>()
                      .RegisterType<IBoxEntry, BoxEntry>()
                      .RegisterType<IRecordPresenter, RecordPresenter>()
-                     .RegisterType<IRecordPresenter, RecordPresenterLogger>
+                     .RegisterType<IRecordPresenter, RecordPresenterDecorator>
                          (new InjectionConstructor
                             (new ResolvedParameter<RecordPresenter>(), new ResolvedParameter<ILogger>()))
                      .RegisterType<IRecordView, ViewRecord>();            
