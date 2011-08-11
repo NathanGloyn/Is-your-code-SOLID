@@ -88,7 +88,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="PresenterDecorators\RecordPresenterLogger.cs" />
+    <Compile Include="PresenterDecorators\RecordPresenterDecorator.cs" />
     <Compile Include="PresenterDecorators\SearchPresenterDecorator.cs" />
     <Compile Include="Logging\DebugLogger.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
