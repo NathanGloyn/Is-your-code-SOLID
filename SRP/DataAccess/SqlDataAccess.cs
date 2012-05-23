@@ -12,7 +12,6 @@ namespace BoxInformation
             ConnectionString = connectionString;
         }
 
-
         public DataSet FillDataSet(string storedProcedure, CommandType commandType, params SqlParameter[] parameters)
         {
             return ExecuteDataAdapterFill(storedProcedure, commandType, parameters);
@@ -70,7 +69,6 @@ namespace BoxInformation
 
             return results;
         }
-
 
     }
 }
