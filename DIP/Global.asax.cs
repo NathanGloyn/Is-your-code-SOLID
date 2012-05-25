@@ -102,8 +102,7 @@ namespace BoxInformation
             }
         }
 
-        private static void ConfigureContainer(
-            IUnityContainer container,string containerName)
+        private static void ConfigureContainer(IUnityContainer container,string containerName)
         {
             if (containerName == "application")
             {
